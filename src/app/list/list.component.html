@@ -1,0 +1,74 @@
+<!-- <p>list works!</p>
+
+<select>
+    <option *ngFor="let product of products">{{product.BrandName}}</option>
+</select>
+
+<hr>
+
+<button (click)="makeRequest()">Make Request</button>
+
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+         </tr>
+      </thead>
+
+        <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.BrandName}}</td>
+        </tr>
+
+      </tbody>
+    </table> -->
+
+
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="container">
+      <div class="row">
+        <h1>
+          Section 1
+        </h1>
+      </div>
+      <div class="row">
+
+        <div class="form-group">
+          <label class="control-label" for="BrandName">BrandName:</label>
+          <select *ngIf="getBrandNames()" [(ngModel)]="selectedBrandName"
+            (change)="onSelectBrandName($event.target.value)" class="form-control input-lg" id="brandName">
+            <option value="0">Select BrandName</option>
+            <option *ngFor="let brandName of getBrandNames()" value={{brandName.id}}>{{brandName.name}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label" for="BrandProducts">BrandProducts:</label>
+          <select *ngIf="brandProducts" [(ngModel)]="selectedBrandProduct"
+            (change)="onSelectBrandProduct($event.target.value)" class="form-control input-lg" id="brandProduct">
+            <option value="0">Select BrandProduct</option>
+            <option *ngFor="let brandProduct of brandProducts" value={{brandProduct.id}}>{{brandProduct.name}}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <app-product-type></app-product-type>
+  </div>
+  <hr>
+
+  <div class="col-sm-6">
+    <h1>
+      Section 2
+    </h1>
+    <app-checkbox></app-checkbox>
+  </div>
+</div>
+<br>
+<div>
+  <button [routerLink]="['/feedback']">Feedback</button></div>

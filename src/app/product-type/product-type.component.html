@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <h1>
+            Section 1 Part 2
+        </h1>
+    </div>
+    <div class="row">
+
+        <div class="form-group">
+            <label class="control-label" for="BrandName">Product Type:</label>
+            <select *ngIf="getBrandNames()" [(ngModel)]="selectedBrandName"
+                (change)="onSelectBrandName($event.target.value)" class="form-control input-lg" id="brandName">
+                <option value="0">Select Product Type</option>
+                <option *ngFor="let brandName of getBrandNames()" value={{brandName.id}}>{{brandName.name}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label" for="BrandProducts">ModelNumber, ModelName:</label>
+            <select *ngIf="brandProducts" [(ngModel)]="selectedBrandProduct"
+                (change)="onSelectBrandProduct($event.target.value)" class="form-control input-lg" id="brandProduct">
+                <option value="0">Select ModelNumber & ModelName</option>
+                <option *ngFor="let brandProduct of brandProducts" value={{brandProduct.id}}>{{brandProduct.name}}
+                </option>
+            </select>
+        </div>
+    </div>
+</div>
